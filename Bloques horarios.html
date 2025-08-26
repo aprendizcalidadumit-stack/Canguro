@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diagrama de Bloques Horarios</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", sans-serif;
+      background: linear-gradient(135deg, #eef2f6, #d9e2ec);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .compact-container {
+      width: 95%;
+      max-width: 1100px;
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+      overflow: hidden;
+    }
+
+    /* HEADER */
+    .presentation-header {
+      background: #2c3e50;
+      color: #fff;
+      padding: 18px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .presentation-header h1 {
+      font-size: 22px;
+    }
+    .slide-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 13px;
+    }
+    .slide-number {
+      background: #3498db;
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-weight: 500;
+    }
+
+    /* GRID DE BLOQUES */
+    .content {
+      padding: 24px;
+    }
+    .horizontal-schedule {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .compact-block {
+      border-radius: 10px;
+      padding: 16px;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 140px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .compact-block:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+    }
+    .block-title {
+      font-weight: 600;
+      font-size: 15px;
+      margin-bottom: 6px;
+    }
+    .duration {
+      font-size: 13px;
+      opacity: 0.9;
+      margin-top: 4px;
+    }
+
+    /* COLORES */
+    .block-1 { background: linear-gradient(135deg, #3498db, #2980b9); }
+    .block-2 { background: linear-gradient(135deg, #2ecc71, #27ae60); }
+    .block-3 { background: linear-gradient(135deg, #e74c3c, #c0392b); }
+    .block-4 { background: linear-gradient(135deg, #9b59b6, #8e44ad); }
+
+    /* LEYENDA */
+    .compact-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 10px;
+      padding: 16px;
+      background: #f8f9fa;
+      border-radius: 8px;
+      font-size: 13px;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+    }
+    .legend-color {
+      width: 18px;
+      height: 18px;
+      border-radius: 4px;
+      margin-right: 8px;
+    }
+
+    /* FOOTER */
+    .footer {
+      padding: 14px 24px;
+      background: #f8f9fa;
+      border-top: 1px solid #e9ecef;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      color: #6c757d;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 600;
+      color: #2c3e50;
+    }
+  </style>
+</head>
+<body>
+  <div class="compact-container">
+    <!-- HEADER -->
+    <div class="presentation-header">
+      <h1>Diagrama de Bloques Horarios</h1>
+      <div class="slide-info">
+        <div class="slide-number">Universidad de Ibagué</div>
+        <div>Presentación de Horarios</div>
+      </div>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="content">
+      <!-- BLOQUES EN HORIZONTAL -->
+      <div class="horizontal-schedule">
+        <div class="compact-block block-1">
+          <div class="block-title">Bloque 1 - Fase 1 Nuevos Ingresos + Controles Fase 2 6m, 12m</div>
+          <div class="duration"><i class="fas fa-clock"></i> 7:00 - 9:00</div>
+        </div>
+        <div class="compact-block block-2">
+          <div class="block-title">Bloque 2 - Controles menos complejos Fase 2 Mes 1/2 + Controles Fase 1</div>
+          <div class="duration"><i class="fas fa-clock"></i> 9:00 - 12:00</div>
+        </div>
+        <div class="compact-block block-3">
+          <div class="block-title">Bloque 3 - Controles selectivos Fase 2</div>
+          <div class="duration"><i class="fas fa-clock"></i> 14:00 - 16:00</div>
+        </div>
+        <div class="compact-block block-4">
+          <div class="block-title">Bloque 4 - Casos especiales/Contingencias</div>
+          <div class="duration"><i class="fas fa-clock"></i> 16:00 - 18:00</div>
+        </div>
+      </div>
+
+      <!-- LEYENDA -->
+      <div class="compact-legend">
+        <div class="legend-item">
+          <div class="legend-color" style="background: linear-gradient(135deg, #3498db, #2980b9);"></div>
+          <span>Bloque 1 - Fase 1</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-color" style="background: linear-gradient(135deg, #2ecc71, #27ae60);"></div>
+          <span>Bloque 2 - Controles</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-color" style="background: linear-gradient(135deg, #e74c3c, #c0392b);"></div>
+          <span>Bloque 3 - Selectivos</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-color" style="background: linear-gradient(135deg, #9b59b6, #8e44ad);"></div>
+          <span>Bloque 4 - Casos Especiales</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      <div class="logo"><i class="fas fa-chart-bar"></i> Sistema Canguro</div>
+      <div>© 2025 - Dirección de Planeación y Calidad UMIT</div>
+      <div>Juan Pablo Cardozo | Jhoan Santos Martinez</div>
+    </div>
+  </div>
+</body>
+</html>
